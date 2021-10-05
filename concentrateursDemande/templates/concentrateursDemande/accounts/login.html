@@ -1,0 +1,76 @@
+
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Login {% endblock title %}
+
+{% block stylesheets %}
+<style>
+
+#font{
+	width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #FF6603;
+  background: -webkit-linear-gradient(-135deg, #FF6603, #8B0000);
+  background: -o-linear-gradient(-135deg, #FF6603, #8B0000); 
+  background: -moz-linear-gradient(-135deg, #FF6603, #8B0000);
+  background: linear-gradient(-135deg, #ed6f6f, #bf0016);
+}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" id="font">
+        <div class="pos-a centerXY">
+          <div class="bgc-white bdrs-50p pos-r" style="width: 140px; height: 140px;">
+            <img class="pos-a centerXY" src="/static/assets/images/logo.png" alt="" style="width: 100px; height: 100px;"> 
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-5 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style="min-width: 320px;">
+
+        <h3 class="fw-300 c-grey-900 mB-40">
+          <a target="_blank" rel="noopener noreferrer" style="color:#e6263c" >AI fraud solution</a> - Login
+        </h3>
+
+        {% if msg %}
+            <h4 class="fw-300 c-grey-900 mB-40">{{ msg | safe }}</h4>
+        
+        {% endif %}
+
+        <form method="post" action="">
+
+          {% csrf_token %}
+
+          <div class="form-group">
+            <label class="text-normal text-dark">Username</label>
+            {{ form.username }}
+          </div>
+
+          <div class="form-group">
+            <label class="text-normal text-dark">Password</label>
+            {{ form.password }}
+          </div>
+
+          <div class="form-group">
+            <div class="peers ai-c jc-sb fxw-nw">
+              <div class="peer">
+                <button type="submit" name="login" class="btn btn-primary" style="background-color: #e2001a; width:200%">Login</button>
+                
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>  
+
+{% endblock content %}

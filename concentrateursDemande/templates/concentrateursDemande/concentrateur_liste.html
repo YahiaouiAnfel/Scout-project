@@ -1,0 +1,124 @@
+{% extends "layouts/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- Modal -->
+<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="font-size: 0.6em">
+    <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h5 class="modal-title" class="slds-text-heading_medium slds-hyphenate" id="myModalLabel" >
+                </h5>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">إضافة مكثف</h2>
+                </div>
+                <form method="post" novalidate>
+                    {% csrf_token %}                      
+                    <div class="peer pX-40 " style="background-color: white">
+                        <div class="row text-center">
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    {{ form.Reference|as_crispy_field}}
+                                </div>
+                                <div class="form-group ">
+                                    {{ form.Debit|as_crispy_field}}
+                                </div>
+                                <div class="form-group ">
+                                    {{ form.pression|as_crispy_field}}
+                                </div>
+                                <div class="form-group ">
+                                    {{ form.electrique|as_crispy_field }}
+                                </div>
+                                <div class="form-group ">
+                                    {{ form.concentration|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    {{ form.sonore|as_crispy_field }}
+                                </div>                                
+                                <div class="form-group ">
+                                    {{ form.dimensions|as_crispy_field }}
+                                </div>
+                                <div class="form-group ">
+                                    {{ form.poids|as_crispy_field }}
+                                </div>                                
+                                <div class="form-group ">
+                                    {{ form.soupage|as_crispy_field }}
+                                </div>                                
+                                <div class="form-group ">
+                                    {{ form.autre|as_crispy_field }}
+                                </div>                                                         
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button style="background-color:#F9E9C7;" type="submit" class="btn save">تأكيد التسجيل</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="page-section" id="concentrateur_liste">
+
+    <div class="container">
+        <div class="text-center">
+            <br>
+            <h2 class="section-heading text-uppercase">المكثفات</h2>
+        </div>
+
+        <button style="background-color:#F9E9C7;margin-bottom: 1%" type="button" class="btn" data-toggle="modal" data-target="#myModalHorizontal" href="" >إضافة مكثف</button>
+        
+        <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead style="color:black" >
+                <tr>
+                    <th>الرقم التسلسلي</th>
+                    <th>الحد الأقصى للتدفق</th>
+                    <th>ضغط المخرج</th>
+                    <th>الكهرباء HZ</th>                        
+                    <th>تركيز الأكسجين</th>
+                    <th>مستوى الصوت DB</th>
+                    <th>الأبعاد HxLxP</th>
+                    <th>الوزن KG</th>
+                    <th>صمام الإغاثة</th>
+		    <th>متوفر</th>
+                    <th>ملاحظات أخرى</th>
+                </tr>
+            </thead>
+                    
+            <tbody>
+                {% for i in concentrateur %}
+                    <tr>       
+                        <td>{{ i.Reference }}</td>
+                        <td>{{ i.Debit }}</td>
+                        <td>{{ i.pression }}</td>
+                        <td> {{ i.electrique }}</td>
+                        <td> {{ i.concentration }}</td>
+                        <td> {{ i.sonore }}</td>
+                        <td> {{ i.dimensions }}</td>
+                        <td> {{ i.poids }}</td>
+                        <td> {{ i.soupage }}</td>
+			            <td> {{ i.disponible }}</td>
+                        <td> {{ i.autre }}</td>
+                    </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock content %}

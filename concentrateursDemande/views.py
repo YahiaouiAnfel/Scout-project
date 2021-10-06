@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import DemandeFormulaire,ConcentrateurForm, DemandeTraiteForm, RetourConcentrateur
 from .models import Concentrateur, Demande, DemandeTraite
+
 def DemandeForm(request):
 	if request.method == "POST":
 		form = DemandeFormulaire(request.POST)

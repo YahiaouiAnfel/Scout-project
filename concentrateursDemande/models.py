@@ -3,7 +3,10 @@ from django.db import models
 from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
 from django import forms
-
+import datetime
+from datetime import date
+import django.utils
+from django.utils import timezone, dateformat
 class Demande(models.Model):
     COMMUNE_CHOICES=(('1', 'باب الواد'), ('2', 'برج البحري'), ('3', 'أولاد شبل'), ('4', 'أولاد فايت'), ('5', 'الأبيار'), ('6', 'الجزائر الوسطى'), ('7', 'الحامة - العناصر'), ('8', 'الحراش'), ('9', 'الحمامات'), ('10', 'الدار البيضاء'), ('11', 'الرايس حميدو'), ('12', 'الرحمانية'), ('13', 'الرغاية'), ('14', 'الرويبة'), ('15', 'السحاولة'), ('16', 'السويدانية'), ('17', 'الشراقة'), ('18', 'العاشور'), ('19', 'القبة'), ('20', 'القصبة'), ('21', 'الكاليتوس'), ('22', 'المحالمة'), ('23', 'المحمدية'), ('24', 'المدنية'), ('25', 'المرادية'), ('26', 'المرسى'), ('27', 'المقارية'), ('28', 'بئر توتة'), ('29', 'بئر خادم'), ('30', 'بئر مراد رايس'), ('31', 'باب الزوار'), ('32', 'باب الواد'), ('33', 'بابا حسن'), ('34', 'باش جراح'), ('35', 'براقي'), ('36', 'برج البحري'), ('37', 'برج الكيفان'), ('38', 'بن عكنون'), ('39', 'بني مسوس'), ('40', 'بوروبة'), ('41', 'بوزريعة'), ('42', 'بولوغين'), ('43', 'جسر قسنطينة'), ('44', 'حسين داي'), ('45', 'حيدرة'), ('46', 'خرايسية'), ('47', 'دالي إبراهيم'), ('48', 'دويرة'), ('49', 'زرالدة'), ('50', 'سطاوالي'), ('51', 'سيدي موسى'), ('52', 'عين البنيان'), ('53', 'عين طاية'), ('54', 'هراوة'), ('55', 'واد قريش'), ('56', 'وادي السمار'), ('57', 'بوزريعة'), ('58', 'تسالة المرجة'))
     ORDO_CHOICES=(('1', 'نعم, مرض كوفيد'),('2', 'نعم, مرض رئوي اخر'),('3', 'لا'))
@@ -25,6 +28,7 @@ class Demande(models.Model):
     maladieChronique = models.CharField(verbose_name='هل لدى المريض أمراض مزمنة ؟',max_length=200,choices=MALADIE_CHOICES,default='1')
     autre = models.TextField(verbose_name='ملاحظات أخرى',blank=True)
     traite = models.CharField(verbose_name='تم معالجة الطلب',choices=TRAITE_CHOICES,default='1',max_length=10, blank=True)
+    dateDemande = models.DateField(verbose_name='تاريخ تسليم المكثف', default=dateformat.format(timezone.now(), 'Y-m-d'))
 
     def __str__(self):
         return self.NCI
@@ -52,4 +56,4 @@ class Concentrateur(models.Model):
 class DemandeTraite(models.Model):
     demande = models.ForeignKey(Demande, on_delete=models.CASCADE,verbose_name='رقم بطاقة التعريف الوطنية', limit_choices_to={'traite':'1'})
     concentrateur = models.ForeignKey(Concentrateur, on_delete=models.CASCADE,verbose_name='الرقم التسلسلي', limit_choices_to={'disponible':'2'})
-    date = models.DateField(verbose_name='تاريخ تسليم المكثف')
+    date = models.DateField(verbose_name='تاريخ تسليم المكثف', default=dateformat.format(timezone.now(), 'Y-m-d'))

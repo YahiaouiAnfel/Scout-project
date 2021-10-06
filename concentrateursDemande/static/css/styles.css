@@ -11782,7 +11782,3 @@ body, #navbarResponsive, .text-center, .section-heading, .text-uppercase{
   transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   z-index:1;
 }
-
-.toolbar {
-    float: right;
-}

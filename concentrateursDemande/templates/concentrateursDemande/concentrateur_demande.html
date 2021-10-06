@@ -3,90 +3,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<!-- Modal -->
-<div class="modal fade" id="myModalHorizontal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" style="font-size: 0.6em">
-    <div class="modal-dialog">
-         <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <h5 class="modal-title" class="slds-text-heading_medium slds-hyphenate" id="myModalLabel1" >
-                </h5>
-            </div>
 
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">تسليم مكثف</h2>
-                </div>
-                <form method="post" novalidate>
-                    {% csrf_token %}                      
-                    <div class="peer pX-40 " style="background-color: white">
-                        <div class="row text-center">
-                            <div class="col-md-12">
-                                <div class="form-group ">
-                                    {{ form.demande|as_crispy_field}}
-                                </div>
-                                <div class="form-group ">
-                                    {{ form.concentrateur|as_crispy_field}}
-                                </div>
-                                <div class="form-group ">
-                                    {{ form.date|as_crispy_field}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button style="background-color:#F9E9C7;" type="submit" class="btn save" name="envoi">تأكيد التسليم</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModalHorizontal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" style="font-size: 0.6em">
-    <div class="modal-dialog">
-         <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <h5 class="modal-title" class="slds-text-heading_medium slds-hyphenate" id="myModalLabel2" >
-                </h5>
-            </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">إعادة مكثف</h2>
-                </div>
-                <form method="post" novalidate>
-                    {% csrf_token %}                      
-                    <div class="peer pX-40 " style="background-color: white">
-                        <div class="row text-center">
-                            <div class="col-md-12">
-                                <div class="form-group ">
-                                    {{ form2.concentrateur|as_crispy_field}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button style="background-color:#F9E9C7;" type="submit" class="btn save" name="retour">تأكيد العملية</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
+{% include "modals/concentrateur_demandeModal.html" %}
 
 <section class="page-section" id="concentrateur_demande">
 
@@ -96,26 +14,27 @@
             <h2 class="section-heading text-uppercase">الطلبات</h2>
         </div>
           
+        <div class="center">
+            <button style="background-color:#F9E9C7;margin-bottom: 1%" type="button" class="btn" هd="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                الخيارات
+            </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" data-column="1">الإسم و اللقب</a>
+                        <a class="dropdown-item" data-column="2">العمر</a>
+                        <a class="dropdown-item" data-column="3">رقم هاتف مرافق المريض</a>
+                        <a class="dropdown-item" data-column="4">البلدية</a>
+                        <a class="dropdown-item" data-column="5">العنوان</a>
+                        <a class="dropdown-item" data-column="6">الوزن</a>
+                        <a class="dropdown-item" data-column="8">الوصفة</a>
+                        <a class="dropdown-item" data-column="9">مكان تواجد المريض</a>
+                        <a class="dropdown-item" data-column="10">هل لدى المريض أمراض مزمنة ؟</a>
+                        <a class="dropdown-item" data-column="12">ملاحظات أخرى</a>
+                    </div>
 
-        <button style="background-color:#F9E9C7;margin-bottom: 1%" type="button" class="btn" هd="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            الخيارات
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" data-column="1">الإسم و اللقب</a>
-            <a class="dropdown-item" data-column="2">العمر</a>
-            <a class="dropdown-item" data-column="3">رقم هاتف مرافق المريض</a>
-            <a class="dropdown-item" data-column="4">البلدية</a>
-            <a class="dropdown-item" data-column="5">العنوان</a>
-            <a class="dropdown-item" data-column="6">الوزن</a>
-            <a class="dropdown-item" data-column="8">الوصفة</a>
-            <a class="dropdown-item" data-column="9">مكان تواجد المريض</a>
-            <a class="dropdown-item" data-column="10">هل لدى المريض أمراض مزمنة ؟</a>
-            <a class="dropdown-item" data-column="12">ملاحظات أخرى</a>
+            <button style="background-color:#F9E9C7;margin-bottom: 1%" type="button" class="btn" data-toggle="modal" data-target="#myModalHorizontal1" href="" >تسليم مكثف</button>
+            <button style="background-color:#F9E9C7;margin-bottom: 1%" type="button" class="btn" data-toggle="modal" data-target="#myModalHorizontal2" href="" >إعادة مكثف</button>
         </div>
-
-        <button style="background-color:#F9E9C7;margin-bottom: 1%" type="button" class="btn" data-toggle="modal" data-target="#myModalHorizontal1" href="" >تسليم مكثف</button>
-        <button style="background-color:#F9E9C7;margin-bottom: 1%" type="button" class="btn" data-toggle="modal" data-target="#myModalHorizontal2" href="" >إعادة مكثف</button>
-
+        
         <table id="dataTable1" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead style="color:black" >
                 <tr>
@@ -158,5 +77,4 @@
         </table>
     </div>
 </section>
-
 {% endblock content %}

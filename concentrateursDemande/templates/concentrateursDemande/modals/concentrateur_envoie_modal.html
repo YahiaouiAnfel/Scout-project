@@ -1,0 +1,50 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!-- Modal -->
+<div class="modal fade" id="myModalHorizontal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true" style="font-size: 0.6em">
+    <div class="modal-dialog">
+         <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h5 class="modal-title" class="slds-text-heading_medium slds-hyphenate" id="myModalLabel1" >
+                </h5>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">تسليم مكثف</h2>
+                </div>
+                <br>
+                <form method="post" novalidate>
+                    {% csrf_token %}                      
+                    <div class="peer pX-40 " style="background-color: white">
+                        <div class="row text-center">
+                            <div class="col-md-12">
+                                <div class="form-group ">
+                                    {{ form.demande|as_crispy_field}}
+                                </div>
+                                <div class="form-group ">
+                                    {{ form.concentrateur|as_crispy_field}}
+                                </div>
+                                <div class="form-group ">
+                                    {{ form.date|as_crispy_field}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn save button_modal" name="envoi">
+                            <img src="{% static 'assets/img/icone/confirmer.png' %}" alt="..." />
+                            تأكيد التسليم</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

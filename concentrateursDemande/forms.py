@@ -1,8 +1,12 @@
 from django import forms
-
 from .models import Demande, Concentrateur, DemandeTraite
+from django.conf import settings
+import datetime
+from datetime import date
+import django.utils
+from django.utils import timezone, dateformat
 
-class DemandeFormulaire(forms.ModelForm):
+class DemandeClientFormulaire(forms.ModelForm):
 
     class Meta:
         model = Demande
@@ -13,7 +17,7 @@ class DemandeFormulaire(forms.ModelForm):
 
 
 
-class ConcentrateurForm(forms.ModelForm):
+class ConcentrateurAddForm(forms.ModelForm):
 
     class Meta:
         model = Concentrateur
@@ -33,4 +37,6 @@ class DemandeTraiteForm(forms.ModelForm):
 
 
 class RetourConcentrateur(forms.Form):
+    demande=forms.ModelChoiceField(DemandeTraite.objects.filter(dateRetour=None),label='رقم بطاقة التعريف')
     concentrateur=forms.ModelChoiceField(Concentrateur.objects.filter(disponible='1'),label='الرقم التسلسلي')
+    dateRetour=forms.DateField(label='تاريخ إعادة المكثف', initial=dateformat.format(timezone.now(), 'Y-m-d'), input_formats=settings.DATE_INPUT_FORMATS)

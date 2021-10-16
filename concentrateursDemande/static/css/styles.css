@@ -11777,8 +11777,64 @@ body, #navbarResponsive, .text-center, .section-heading, .text-uppercase{
   font-size:120%;
 }
 
-.img-fluid:hover {
+.img-fluid-portofolio {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-fluid-portofolio:hover {
   position: absolute;
   transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   z-index:1;
+}
+
+hr.new {
+  border-top: 2px dashed;
+  color:#8C68A8;
+}
+
+.button_modal{
+    border-color:#8C68A8;
+    color:white;
+    background-color: #8C68A8;
+    margin-bottom: 1%;
+  }
+
+.button_modal:hover {
+    border-color:#FFC800;
+    color:white;
+    background-color: #FFC800;
+    margin-bottom: 1%;
+
+  }
+
+.img-beside-txt{
+    display:inline-block;
+    float: right;
+    margin-right: 1px;
+}
+
+.container-contact{
+    color:white;
+}
+
+.team-size{
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border-text{
+  border: 3px;
+  border-style: solid;
+  border-radius: 15px;
+  width: 60%;
+  color: black;
+  margin: auto;
+  text-align: center;
+}
+
+.text-uppercase{
+  font-size: 1.5em;
 }

@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'ar-DZ'
+LANGUAGE_CODE = 'ar-AR'
 
 TIME_ZONE = 'Africa/Algiers'
 
@@ -128,3 +128,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+DATE_INPUT_FORMATS = ['%Y-%m-%d']

@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='DemandeTraite',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date', models.DateField(verbose_name='تاريخ تسليم المكثف')),
+                ('date', models.DateField(default='2021-10-13',verbose_name='تاريخ تسليم المكثف')),
                 ('concentrateur', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='concentrateursDemande.Concentrateur')),
                 ('demande', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='concentrateursDemande.Demande')),
             ],

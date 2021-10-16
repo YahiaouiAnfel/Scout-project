@@ -3,13 +3,17 @@
 {% load crispy_forms_tags %}
 <html dir="rtl" lang="ar" xml:lang="ar">
     <head>
-        <meta charset="utf-8" />
+                <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+
         <title>فوج البدر-بوزريعة</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
@@ -71,7 +75,7 @@
                                 <div class="form-group ">
                                     {{ form.NCI|as_crispy_field}}
                                 </div>                                
-				<div class="form-group ">
+                <div class="form-group ">
                                     {{ form.nomPrenom|as_crispy_field}}
                                 </div>
                                 <div class="form-group ">
@@ -110,7 +114,9 @@
 
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary save">تأكيد الطلب</button>
+                            <button type="submit" class="btn save button_modal">
+                            <img src="{% static 'assets/img/icone/confirmer.png' %}" alt="..." />
+                            تأكيد الطلب</button>
                         </div>
                     </div>
                     </form>
@@ -144,10 +150,24 @@
                                 <h4>المادة 02</h4>
                             </div>
                             <div class="timeline-body">
-				<p class="text-muted">
-					تهدف الكشافة الإسلامية الجزائرية إلى المساهمة في تنمية قدرات الأطفال والفتية والشباب روحيا وفكريا وبدنيا واجتماعيا ليكونوا مواطنين مسؤولين في وطنهم وصالحين لمجتمعهم.
-				</p>
-			    </div>
+                                <p class="text-muted" style="text-align: justify;">
+                                   يهدف الفوج إلى:<br> 
+
+                                    <b>الهدف الرئيسي:</b>
+                                     تهدف الكشافة الإسلامية الجزائرية إلى المساهمة في تنمية قدرات الأطفال والفتية والشباب روحيا وفكريا وبدنيا واجتماعيا ليكونوا مواطنين مسؤولين في وطنهم وصالحين لمجتمعهم.
+                                    <br>
+                                    <b>الأهداف الفرعية:</b>
+                                    <br>
+                                    - المساهمة في تنمية المجتمع وخدمة المنفعة العمومية في كل الأحوال والظروف.
+                                    <br>
+                                    - غرس المبادئ الإسلامية والقيم الوطنية ومفهوم الفتوة وروح المسؤولية والتربية من أجل السلام في نفوس الفتية والشباب.
+                                    <br>
+                                    - تدعيم روابط الأخوة والتعاون مع الجمعيات والهيئات الوطنية والدولية ذات المبادئ والأهداف المشتركة.
+                                    <br>
+                                    - المساهمة في الحياة التربوية والاجتماعية والعلمية والثقافية والرياضية.
+
+                                </p>
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -187,11 +207,10 @@
         <section class="page-section" id="team">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">هيكلة الفوج</h2>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4">
+                <div>
+                    <!--<div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpg' %}" alt="..." />
                             <h4>Parveen Anand</h4>
@@ -200,31 +219,9 @@
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
-                            <h4>Diana Petersen</h4>
-                            <p class="text-muted">Lead Marketer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
-                            <h4>Larry Parker</h4>
-                            <p class="text-muted">Lead Developer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
-                </div>
+                    </div>-->
+                    <img class="team-size" src="{% static 'assets/img/team/team.png' %}" alt="..." />
+
             </div>
         </section>
 
@@ -239,7 +236,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/1.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/1.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2011</div>
@@ -250,7 +247,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/2.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/2.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2012</div>
@@ -261,7 +258,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/3.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/3.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2013</div>
@@ -272,7 +269,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/4.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/4.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2014</div>
@@ -283,7 +280,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/5.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/5.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2015</div>
@@ -294,7 +291,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/6.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/6.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2016</div>
@@ -305,7 +302,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/7.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/7.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2017</div>
@@ -316,7 +313,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/8.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/8.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2018</div>
@@ -327,7 +324,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <img class="img-fluid" src="{% static 'assets/img/portfolio/9.jpg' %}" alt="..." />
+                            <img class="img-fluid-portofolio" src="{% static 'assets/img/portfolio/9.jpg' %}" alt="..." />
 
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-subheading text-muted">سنة 2019</div>
@@ -341,92 +338,58 @@
 
         <!-- Contact-->
         <section class="page-section" id="contact">
-            <div class="container">
+            <div class="container" style="color:white;" >
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">تواصل معنا</h2>
                 </div>
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="img-beside-txt"><img src="{% static 'assets/img/icone/localisation.png' %}"></div>
+                            <div class="img-beside-txt">
+                                <h4 >الموقع:</h4>
+                                <p>حي الفدائيين عمارة رقم 3, الجزائر.</p>
                             </div>
-                            <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                        </div>
                     </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
+                    <div class="col-lg-4">
+                            <div class="img-beside-txt"><img src="{% static 'assets/img/icone/email.png' %}"></div>
+                            <div class="img-beside-txt">
+                                    <h4 >الإيميل:</h4>
+                                    <p>albadrscout@gmail.com</p>
+                            </div>
                     </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-                </form>
+                    <div class="col-lg-4">
+                            <div class="img-beside-txt"><img src="{% static 'assets/img/icone/tel.png' %}"></div>
+                            <div class="img-beside-txt">
+                                    <h4 >إتصل بنا:</h4>
+                                    <p>0557793574</p>
+                            </div>
+                    </div>
+                </div>
             </div>
         </section>
-
 
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2021</div>
+                    <div class="col-lg-4 text-lg-start">كل الحقوق محفوظة</div>
                     <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                         <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/Elbaderscout"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/scout_elbadr/?hl=fr"><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                        <p class="link-dark text-decoration-none me-3" ><b>فوج البدر-بوزريعة</b> &copy; 2021</p>
                     </div>
                 </div>
             </div>
-        </footer>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+        </footer>  
     </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>    
+<script src="{% static 'js/dataTable.js' %}"></script>

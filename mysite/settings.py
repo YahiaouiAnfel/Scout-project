@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'concentrateursDemande.apps.ConcentrateursDemandeConfig',
     'crispy_forms',
     'bootstrap4',
+    'authentication.apps.AuthenticationConfig',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [

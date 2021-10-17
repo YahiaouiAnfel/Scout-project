@@ -8,7 +8,8 @@
                             {"targets": [5],"visible": false},
                             {"targets": [6],"visible": false},
                             {"targets": [8],"visible": false},
-                            {"targets": [12],"visible": false},
+                            {"targets": [10],"visible": false},
+                            {"targets": [14],"visible": false},
                            ],
         } ); 
 

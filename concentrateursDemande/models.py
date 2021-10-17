@@ -25,6 +25,8 @@ class Demande(models.Model):
     poids = models. FloatField(verbose_name='الوزن',default=0.0)
     oxygene = models.CharField(verbose_name='نسبة الأكسجين في الدم',max_length=200,choices=OXY_CHOICES,default='8')
     ordonnance = models.CharField(verbose_name='هل لديك وصفة ؟',max_length=200,choices=ORDO_CHOICES,default='1')
+    medecin = models.CharField(verbose_name='إسم الطبيب المعالج',max_length=200,default='', blank=True)
+    NumMedecin = PhoneNumberField(verbose_name='رقم الطبيب المعالج',default='+213', region="AG", blank=True)
     endroit = models.CharField(verbose_name='مكان تواجد المريض',max_length=200,choices=ENDROIT_CHOICES,default='1')
     maladieChronique = models.CharField(verbose_name='هل لدى المريض أمراض مزمنة ؟',max_length=200,choices=MALADIE_CHOICES,default='1')
     autre = models.TextField(verbose_name='ملاحظات أخرى',blank=True)

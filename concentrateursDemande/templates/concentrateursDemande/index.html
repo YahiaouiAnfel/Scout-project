@@ -71,11 +71,11 @@
                         {% csrf_token %}                      
                     <div class="peer pX-40 " style="background-color: white">
                         <div class="row text-center">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group ">
                                     {{ form.NCI|as_crispy_field}}
                                 </div>                                
-                <div class="form-group ">
+                                <div class="form-group ">
                                     {{ form.nomPrenom|as_crispy_field}}
                                 </div>
                                 <div class="form-group ">
@@ -87,20 +87,30 @@
                                 <div class="form-group ">
                                     {{ form.commune|as_crispy_field }}
                                 </div>
+                                
+                             
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group ">
                                     {{ form.adresse|as_crispy_field }}
-                                </div>                                
-                            </div>
-                            <div class="col-md-6">
+                                </div>   
                                 <div class="form-group ">
                                     {{ form.poids|as_crispy_field }}
                                 </div>
                                 <div class="form-group ">
                                     {{ form.oxygene|as_crispy_field }}
-                                </div>                                
+                                </div>  
                                 <div class="form-group ">
                                     {{ form.ordonnance|as_crispy_field }}
-                                </div>                                
+                                </div>  
+                                <div class="form-group ">
+                                    {{ form.medecin|as_crispy_field }}
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group ">
+                                    {{ form.NumMedecin|as_crispy_field }}
+                                </div> 
                                 <div class="form-group ">
                                     {{ form.endroit|as_crispy_field }}
                                 </div>                                

@@ -29,9 +29,10 @@
                         <a class="dropdown-item" data-column="5">العنوان</a>
                         <a class="dropdown-item" data-column="6">الوزن</a>
                         <a class="dropdown-item" data-column="8">الوصفة</a>
-                        <a class="dropdown-item" data-column="9">مكان تواجد المريض</a>
-                        <a class="dropdown-item" data-column="10">هل لدى المريض أمراض مزمنة ؟</a>
-                        <a class="dropdown-item" data-column="12">ملاحظات أخرى</a>
+                        <a class="dropdown-item" data-column="10">رقم الطبيب المعالج</a>
+                        <a class="dropdown-item" data-column="11">مكان تواجد المريض</a>
+                        <a class="dropdown-item" data-column="12">هل لدى المريض أمراض مزمنة ؟</a>
+                        <a class="dropdown-item" data-column="14">ملاحظات أخرى</a>
                     </div>
 
             <button class="button_modal" type="button" class="btn" data-toggle="modal" data-target="#myModalHorizontal1" href=""><img src="{% static 'assets/img/icone/donner.png' %}" alt="..." />
@@ -51,7 +52,9 @@
                     <th>الوزن</th>
                     <th>نسبة الأكسجين في الدم</th>
                     <th>الوصفة</th>
-                    <th>مكان تواجد المريض</th>
+                    <th>إسم الطبيب المعالج</th>
+                    <th>رقم الطبيب المعالج</th>
+            	    <th>مكان تواجد المريض</th>
             	    <th>هل لدى المريض أمراض مزمنة ؟</th>
             	    <th>تم معالجة الطلب</th>
             	    <th>ملاحظات أخرى</th>
@@ -70,6 +73,8 @@
                         <td> {{ i.poids }}</td>
                         <td> {{ i.get_oxygene_display }}</td>
                         <td> {{ i.get_ordonnance_display }}</td>
+                        <td> {{ i.medecin }}</td>
+                        <td> {{ i.NumMedecin }}</td>
                         <td> {{ i.get_endroit_display }}</td>
                         <td> {{ i.get_maladieChronique_display }}</td> 
                         <td>

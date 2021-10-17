@@ -11,9 +11,9 @@ class DemandeClientFormulaire(forms.ModelForm):
     class Meta:
         model = Demande
         widgets = {
-          'autre': forms.Textarea(attrs={'rows':2}),
+          'autre': forms.Textarea(attrs={'rows':5}),
         }
-        fields = ('NCI','nomPrenom', 'Age', 'numeroTel', 'commune', 'adresse', 'poids', 'oxygene', 'ordonnance', 'endroit', 'maladieChronique', 'autre','traite')
+        fields = ('NCI','nomPrenom', 'Age', 'numeroTel', 'commune', 'adresse', 'poids', 'oxygene', 'ordonnance', 'medecin', 'NumMedecin', 'endroit', 'maladieChronique', 'autre','traite')
 
 
 
